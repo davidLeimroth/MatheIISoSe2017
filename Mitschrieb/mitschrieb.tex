@@ -6,9 +6,99 @@
 % @Author: David Leimroth
 % @Date:   2017-04-30 17:15:31
 % @Last Modified by:   David Leimroth
-% @Last Modified time: 2017-04-30 18:24:46
+% @Last Modified time: 2017-05-01 00:45:57
+%
+% Mitschrieb der Mathe II Vorlesung - Albert-Ludwigs-Universität Freiburg, Technische Fakultät, Informatik
+%
+% Dieses Dokument erhebt keinen Anspruch auf Vollständigkeit und/oder Korrektheit
+%
+% @Author: David Leimroth
+% @Date:   2017-04-30 17:15:31
+% @Last Modified by:   David Leimroth
+% @Last Modified time: 2017-04-30 23:40:42
+%
+% Mitschrieb der Mathe II Vorlesung - Albert-Ludwigs-Universität Freiburg, Technische Fakultät, Informatik
+%
+% Dieses Dokument erhebt keinen Anspruch auf Vollständigkeit und/oder Korrektheit
+%
+% @Author: David Leimroth
+% @Date:   2017-04-30 17:15:31
+% @Last Modified by:   David Leimroth
+% @Last Modified time: 2017-04-30 23:40:42
 
-\documentclass{article}
+ %----------------------------------------------------------------------------------------
+% PACKAGES UND ANDERE DOKUMENT KONFIGURATIONEN
+%----------------------------------------------------------------------------------------
+\documentclass[bibtotoc,11pt,a4paper,]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}%Bilder einfügen
+\usepackage{tocstyle} %Inhaltsverzeichnis gepunktet
+\usepackage{setspace} %Zeilenabstand 1,5
+    \setstretch{1.28}%  für 12pt
+\usepackage{geometry} %Seitenränder
+  \geometry{a4paper, top=20mm, left=25mm, right=25mm, bottom=25mm}
+  \parindent0cm %Blocksatz nicht eingerückt
+\usepackage{paralist}
+\usepackage{microtype} %besser Blocksatz
+\usepackage[hang, labelfont=bf, textfont={small}, width=12.5cm, up ]{caption} %Tabelle-/Abbildungsunterschriften Konfiguration
+%\usepackage{booktabs} %nur horizontale Linien in Tabellen
+\usepackage{amsfonts}%Mathe
+\usepackage{amsmath}%Mathe
+\usepackage{pxfonts}
+\usepackage{upgreek}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+% EIGENE BEFEHLE
+%----------------------------------------------------------------------------------------
+\newenvironment{listeP}{\begin{itemize} \itemsep -26pt}{\end{itemize}} %Liste mit Punkten
+\newenvironment{listeN}{\begin{enumerate} \itemsept -26pt}{\end{enumerate}} %Liste mit Zahlen
+
+
+
+\bibliographystyle{unsrt} %Literaturverzeichnis Stil
+
+%----------------------------------------------------------------------------------------
+% KOPF- UND FUSSZEILE
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Headers and footers
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{}
+\renewcommand{\subsubsectionmark}[1]{}
+\lhead{\scriptsize{\textsc{ANPASSEN $\bullet$ anpassen}}}
+\rhead{\textbf{\textsc{\rightmark}}}
+
+
+\setcounter{page}{0}
+
+
+%----------------------------------------------------------------------------------------
+% TITELSEITE KONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\titlehead{\includegraphics[scale=0.46]{}} %Bilder/LOGO.JPG
+\title{\textbf{title}}
+\subject{Bericht - Veranstaltung}
+
+
+
+
+
+
+%\documentclass{article}
 \begin{document}
 
   \section{Grundlegende Algebraische Strukturen}
@@ -28,11 +118,92 @@
         M^0 \rightarrow M\ \ \ \ |M^0| = 1
       \end{equation}
 
-      Die nullstellige Operation wird identifiziert mit dem Bild $\in$ M, d.h. mit einer Konstanten aus M.
+      Die nullstellige Operation wird identifiziert mit dem Bild $\in$ M, d.h. mit einer Konstanten aus M.\\
 
-      M endliche Menge\\
+      Sei M eine endliche Menge\\
       $|M^n|$\\
-      $M^2 = M \times M = \{(m_1, m_2) | m_i \in M\}$ für n \le 1 : $\|M^n^\| = \|M\|^n$\\
+      
+      \begin{equation}
+        M^2 = M \times M = \{(m_1, m_2)\ |\ m_i \in M\}\\
+        \forall \ n \le 1 : |M^n| = |M|^n  
+      \end{equation}
+      
+      Also möchte man $|M^0| = |M|^0 = 1$
 
+      Operationen $M^n \rightarrow M$ heißen ``innere Operationen''
+      
+      Beispiel einer ``äußeren Operation'':\\
+      V Vektorraum über den reellen Zahlen\\
+      Skalarmultiplikaton
+      Vektor $v \in V$\\
+      Skalar $r \in \mathbb{R}$\\
+      $r \times v \in V$\\
+      
+      Bsp.: $(\mathbb{N}, +),\ (\mathbb{N}, \times),\ (\mathbb{N}, +, \times),\ (\mathbb{Z}, +),\ (\mathbb{Z}, +, \circ)$
+      
+      Sei M eine Menge\\
+      Abb(M, M) = Menge der Abbildungen (Funktionen)\\
+      (Abb(M, M), $\circ$) $\circ$ ist eine Verknüpfung (Hintereinanderausführung) von Abbildungen\\
+      \begin{equation}
+          (f \circ g)(m) = f(g(m))
+      \end{equation}
+      
+      Sei A eine Menge von Symbolen (``Alphabet'')\\
+      Sei $A^*$ die Menge der ``Wörter'' über A, d.h. endliche Folgen von Symbolen aus A\\
+      
+      Bsp.: A = \{0, a, b, \#\}\\
+      aa\#0, b0b, \#\#\#, a $\in a^*$
+      
+      $\lambda, \epsilon$ ``leere Wort''
+      
+      $(a^*, ^{\smallfrown})$ $^{\smallfrown}$ ist die Konkatenation von Wörtern (Hintereinanderschreibung)
+      
+      aa0\#$^{\smallfrown}$b0b = aa0\#b0b
+      
+      \subsubsection{Eigenschaften von zweistelligen Operationen}
+        
+        Sei M eine Menge\\
+        $\circ, \ast:\ M^2 \rightarrow M$
+        
+        \begin{enumerate}
+            \item $\circ$ heißt kommutatic, falls $\forall m_1, m_2 \in M$ gilt:
+            \begin{equation*}
+                m_1 \circ m_2 = m_2 \circ m_1
+            \end{equation*}
+            
+            \item $\circ$ heißt assoziativ, falls $\forall m_1, m_2, m_3 \in M$ gilt:
+            \begin{equation*}
+                (m_1 \circ m_2) \circ m_3 = m_1 \circ (m_2 \circ m_3)
+            \end{equation*}
+            
+            \item $\star$ heißt distributiv über $\circ$, falls $\forall m_1, m_2, m_3 \in M$ gilt:
+            \begin{itemize}
+                \item[a)] $(m_1 \circ m_2) \star m_3 = (m_1 \star m_3) \circ (m_2 \star m_3)\ \leftarrow$ rechtsdistributiv
+                \item[b)] $m_3 \star (m_1 \circ m_2) = (m_3 \star m_2) \circ (m_3 \star m_2)\ \leftarrow$ linksdistributiv
+            \end{itemize}
+            
+            \item $e \in M$ heißt neutrales Element von $\circ$, falls $\forall m \in M$ gilt:
+            \begin{itemize}
+                \item[a)] $e \circ m = m\ \leftarrow$ linksneutral
+                \item[b)] $m \circ e = m\ \leftarrow$ rechtsneutral
+            \end{itemize}
+            
+            \item Fall $e \in M$ neutrales Element von $\circ$ ist, dann ist m' inverses Element von m bzgl. $\circ$ (und e), falls gilt:
+            \begin{itemize}
+                \item[a)] $m \circ m' = e$
+                \item[b)] $m' \circ m = e$
+            \end{itemize}
+            
+            0 ist das neutrale Element der Addition in $\mathbb{N}/\mathbb{Z}$\\
+            1 ist das neutrale Element der Multiplikation in $\mathbb{N}/\mathbb{Z}$
+        \end{enumerate}
+      
+      
+      Definition: Ein Monoid besteht aus einer nicht-leeren Menge M mit einer assoziativen Verknüpfung $\circ$ mit neutralem Element e.\\
+      $(M, \circ, e)$\\
+      $(M, \circ)$\\
+      M heißt kommutatives Monoid, falls $\circ$ kommutativ ist.
+      
+      Bsp.:
 
 \end{document}
